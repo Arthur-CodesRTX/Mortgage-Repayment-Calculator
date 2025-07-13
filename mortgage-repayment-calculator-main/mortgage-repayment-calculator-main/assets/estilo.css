@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+:root{
+    --color-one:hsl(200, 26%, 54%);
+    --color-two:hsl(200, 24%, 40%);
+    --color-three:hsl(202, 86%, 94%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.bodyBackground{
+    padding: 1.5rem;
+    font-family: "Plus Jakarta Sans", "Arial";
+}
+
+.headerCalculator{
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.headerCalculator h1{
+    font-size: 1.8rem;
+}
+
+.headerCalculator p{
+    color: var(--color-one);
+    font-size: 1rem;  
+    border-bottom:1px solid var(--color-one);
+    width:fit-content;
+}
+
+.formCalculator{
+
+}
+
+.FormContentCalculator{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.formMortagageInput{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border: solid var(--color-two) 1px;
+    border-radius: 5px;
+    margin: 1rem 0;
+}
+
+.formMortagageInput input{
+    width: 100%;
+}
+
+.formMortagageInput span{
+    padding: 1rem;
+    background-color: var(--color-three);
+    font-weight: bold;
+    color: var(--color-two);
+}
+
+.formContentCalculator input{
+    padding: 1.2rem;
+    border-radius: 5px;
+    border: none;
+}
+
+#formMortgageAmount span{
+   border-radius: 5px 0 0 5px;
+}
+
+#formMortgageTerm span, #formMortgageRate span{
+    border-radius: 0 5px 5px 0;
+}
+
+.formContentCalculator label{
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-two);
+}
+
+.formCheckboxContainer{
+    width: 100%;
+}
+
+#checkContainer01{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid var(--color-two);
+    border-radius: 5px;
+    justify-content: left;
+}
+
+#checkContainer01 input{
+    margin-left: 1rem;
+}
+
+#checkContainer01 span {
+    font-size: 1.2rem;
+}
