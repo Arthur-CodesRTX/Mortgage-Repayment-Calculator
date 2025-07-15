@@ -42,14 +42,16 @@
       
       <label for="MortgageType">Mortgage Type</label>
       <article class="formCheckboxContainer">
-        <div id="checkContainer01">
-        <input type="checkbox" name="" id="">
-        <span>Repayment</span>
-      </div>
-      <div id="checkContainer02">
-        <input type="checkbox" name="" id="">
-        <span>Interest Only</span>
-      </div>
+        <div id="checkContainer01" class="checkContainer">
+          <label class="checkBtn" for="checkBox01"></label>
+          <input type="checkbox" name="" id="checkBox01">
+          <p>Repayment</p>              
+        </div>
+        <div id="checkContainer02" class="checkContainer">
+          <label class="checkBtn" for="checkBox02"></label>
+          <input type="checkbox" name="" id="checkBox02">
+          <p>Interest Only</p>
+        </div>
       </article>
 
       <button>Calculate Repayments</button>
