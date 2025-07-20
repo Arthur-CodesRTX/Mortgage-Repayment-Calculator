@@ -42,29 +42,36 @@
       
       <label for="MortgageType">Mortgage Type</label>
       <article class="formCheckboxContainer">
-        <div id="checkContainer01" class="checkContainer">
-          <label class="checkBtn" for="checkBox01"></label>
+        <label for="checkBox01" id="checkContainer01" class="checkContainer">
           <input type="checkbox" name="" id="checkBox01">
+          <span class="checkBtn"></span>
           <p>Repayment</p>              
-        </div>
-        <div id="checkContainer02" class="checkContainer">
-          <label class="checkBtn" for="checkBox02"></label>
+        </label>
+        <label for="checkBox02" id="checkContainer02" class="checkContainer">
           <input type="checkbox" name="" id="checkBox02">
+          <span class="checkBtn"></span>
           <p>Interest Only</p>
-        </div>
+        </label> 
       </article>
 
-      <button>Calculate Repayments</button>
+      <button class="btnCalculate">
+        <img src="assets/images/icon-calculator.svg" alt="" class="btnImage"> 
+        <p>Calculate Repayments</p>
+      </button>
     </form>
   </section>
 
   <!-- Empty results start -->
 
   <footer class="footerCalculatorDisplay">
-    <h2>Results shown here</h2>
+    <img src="assets/images/illustration-empty.svg" alt="">
 
-    <p>Complete the form and click “calculate repayments” to see what 
-    your monthly repayments would be.</p>
+    <div class="footerCalculatorText">
+      <h2>Results shown here</h2>
+      <p>Complete the form and click “calculate repayments” to see what 
+      your monthly repayments would be.
+      </p>
+    </div>
   </footer>
 
   <!-- Empty results end -->
@@ -73,18 +80,24 @@
 
   <footer class="footerCalculatorDisplayNone">
     
-    <div class="CalculatorPrincipal">
+    <div class="CalculatorPrincipalText">
       <h2>Your results</h2>
 
       <p>Your results are shown below based on the information you provided. 
       To adjust the results, edit the form and click “calculate repayments” again.</p>
     </div>
 
-    <h3>Your monthly repayments</h3>
-    <span></span>
+    <div class="CalculatorPrincipalMoney">
+      <div class="CalculatorPrincipalRepayments">
+        <p>Your monthly repayments</p>
+        <span class="MoneyLibra">£</span>
+      </div>
 
-    <h3>Total you'll repay over the term</h3>
-    <span></span>
+      <div class="CalculatorPrincipalRepayTotal">
+        <p>Total you'll repay over the term</p>
+        <span class="MoneyLibraTotal">£</span>
+      </div>
+    </div>
   </footer>
   
   <!-- <div class="attribution">
