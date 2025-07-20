@@ -5,6 +5,8 @@
     --color-two:hsl(200, 24%, 40%);
     --color-three:hsl(202, 86%, 94%);
     --color-four:hsl(202, 55%, 16%);
+    --color-five:hsl(61, 70%, 52%);
+    --color-six:hsl(203, 41%, 72%);
 }
 
 * {
@@ -14,15 +16,14 @@
 }
 
 .bodyBackground{
-    padding: 1.5rem;
     font-family: "Plus Jakarta Sans", "Arial";
 }
 
 .headerCalculator{
-    padding: 1rem 0;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    padding: 1.5rem;
 }
 
 .headerCalculator h1{
@@ -37,7 +38,7 @@
 }
 
 .formCalculator{
-
+    padding: 1.5rem;
 }
 
 .formContentCalculator{
@@ -45,6 +46,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: start;
+    width: 100%;
     
 }
 
@@ -107,21 +109,167 @@
     border: 1px solid var(--color-two);
     border-radius: 5px;
     justify-content: left;
-    padding-left: 0.8rem;
+    padding: 0.8rem;
+    cursor:pointer;
+}
+
+#checkContainer01, #checkContainer02{
+    margin: 0;
+}
+
+.checkContainer p{
     font-size: 1.2rem;
     font-weight: 700;
     color: var(--color-four);
 }
 
+
 .checkContainer input{
     display: none;
 }
 
+.checkContainer:has(input[type="checkbox"]:checked){
+    border: 1px solid var(--color-five);
+    background-color: rgb(215, 218, 47,0.1);
+}
+
 .checkBtn{
-    display: inline-block;
-    margin-left: 5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-two);
     width: 1.2rem;
     aspect-ratio: 1;
     border: 1px solid black;
     border-radius: 50%;
+}
+
+.checkContainer input:checked ~ .checkBtn{
+    border: none;
+    outline-offset: 2px;
+    outline: 2px solid var(--color-five);
+    background-color: var(--color-five);
+    width: 0.7rem;
+    margin-left: 0.3rem;
+    aspect-ratio: 1;
+}
+
+.btnCalculate{
+    background-color: var(--color-five);
+    border: none;
+    width: 100%;;
+    border-radius: 30px;
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+    padding: 1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: var(--color-four);
+}
+
+.footerCalculatorDisplay{
+    margin-top: 1rem;
+    background-color: var(--color-four);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 2rem;
+}
+
+.footerCalculatorText{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+}
+
+.footerCalculatorDisplay h2{
+    font-size: 1.5rem;
+    font-weight: 600;
+    
+}
+
+.footerCalculatorDisplay p{
+    color: var(--color-six);
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    font-weight: 300;
+}
+
+
+.footerCalculatorDisplayNone{
+    display: none;
+    margin-top: 1rem;
+    background-color: var(--color-four);
+    width: 100%;
+    color: white;
+    padding: 2rem ;
+    gap: 1rem;
+}
+
+.CalculatorPrincipalText{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 1.2rem;
+}
+
+.CalculatorPrincipalText h2{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.CalculatorPrincipalText p{
+    color: var(--color-six);
+    font-size: 1rem;
+    text-align:start;
+    letter-spacing: 0.5px;
+    font-weight: 300;
+}
+
+.CalculatorPrincipalMoney{
+    width: 100%;
+    background-color: hsl(201, 55%, 12%);
+    padding: 1.5rem 1rem 0 1rem;
+    border-radius: 10px;
+    border-top: 5px solid var(--color-five);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.CalculatorPrincipalRepayTotal{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 0.5rem;
+    border-top: 0.1px solid var(--color-two);
+    padding: 1rem 0;
+}
+
+.CalculatorPrincipalRepayTotal .MoneyLibraTotal{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+
+.CalculatorPrincipalMoney p{
+    color: var(--color-six);
+    font-size: 1rem;
+}
+
+.CalculatorPrincipalMoney .MoneyLibra{
+    color: var(--color-five);
+    font-size: 2.8rem;
+    font-weight: 600;
 }
