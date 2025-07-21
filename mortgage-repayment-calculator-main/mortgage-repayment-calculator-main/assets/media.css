@@ -1,0 +1,26 @@
+@media screen and (min-width:90em) {
+    
+    body{
+        min-height: 100%;
+        background-color: #e6e6e6;
+    }
+
+    .bodyBackground{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    .formCalculator{
+        width: 100%;
+        background-color: white;
+        height: fit-content;
+    }
+
+    .footerCalculatorDisplay{
+        
+    }
+
+}
