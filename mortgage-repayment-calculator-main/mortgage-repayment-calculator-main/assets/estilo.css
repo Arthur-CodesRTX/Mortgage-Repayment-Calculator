@@ -23,7 +23,6 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    padding: 1.5rem;
 }
 
 .headerCalculator h1{
@@ -75,6 +74,10 @@
     border: none;
 }
 
+.formContentCalculator input:focus{
+    outline: 2px solid var(--color-five);
+}
+
 #formMortgageAmount span{
    border-radius: 5px 0 0 5px;
 }
@@ -111,6 +114,7 @@
     justify-content: left;
     padding: 0.8rem;
     cursor:pointer;
+    transition: 0.2s ease-in-out;
 }
 
 #checkContainer01, #checkContainer02{
@@ -126,11 +130,13 @@
 
 .checkContainer input{
     display: none;
+    
 }
 
 .checkContainer:has(input[type="checkbox"]:checked){
     border: 1px solid var(--color-five);
     background-color: rgb(215, 218, 47,0.1);
+    transition: 0.2s ease-in-out;
 }
 
 .checkBtn{
@@ -141,6 +147,7 @@
     aspect-ratio: 1;
     border: 1px solid black;
     border-radius: 50%;
+    transition: 0.2s ease-in-out;
 }
 
 .checkContainer input:checked ~ .checkBtn{
@@ -151,6 +158,8 @@
     width: 0.7rem;
     margin-left: 0.3rem;
     aspect-ratio: 1;
+    margin-right: 0.2rem;
+    transition: 0.2s ease-in-out;
 }
 
 .btnCalculate{
