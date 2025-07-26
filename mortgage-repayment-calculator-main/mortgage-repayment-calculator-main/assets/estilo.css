@@ -17,6 +17,7 @@
 
 .bodyBackground{
     font-family: "Plus Jakarta Sans", "Arial";
+    background-color: hsl(207, 40%, 90%);
 }
 
 .headerCalculator{
@@ -34,10 +35,12 @@
     font-size: 1rem;  
     border-bottom:1px solid var(--color-one);
     width:fit-content;
+    font-weight: 500;
 }
 
 .formCalculator{
     padding: 1.5rem;
+    background-color: white;
 }
 
 .formContentCalculator{
@@ -78,6 +81,14 @@
     outline: 2px solid var(--color-five);
 }
 
+.formContentCalculator input:focus ~ span{
+    background-color: var(--color-five);
+} 
+
+.formContentCalculator input:focus-within span{
+    background-color: var(--color-five);
+}
+
 #formMortgageAmount span{
    border-radius: 5px 0 0 5px;
 }
@@ -91,6 +102,21 @@
     font-size: 1rem;
     font-weight: 600;
     color: var(--color-two);
+}
+
+.formContentDisplay{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.formContentDisplay .formContentLabels{
+    display: flex;
+    flex-direction: column;
+}
+
+.formContentDisplay .formContentLabels label{
+    width: fit-content;
 }
 
 .formCheckboxContainer{
@@ -176,6 +202,7 @@
     justify-content: center;
     gap: 0.5rem;
     color: var(--color-four);
+    cursor: pointer;
 }
 
 .footerCalculatorDisplay{
