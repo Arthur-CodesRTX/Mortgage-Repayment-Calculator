@@ -30,12 +30,13 @@
     font-size: 1.8rem;
 }
 
-.headerCalculator p{
+.headerCalculator a{
     color: var(--color-one);
     font-size: 1rem;  
     border-bottom:1px solid var(--color-one);
     width:fit-content;
     font-weight: 500;
+    cursor: pointer;
 }
 
 .formCalculator{
@@ -57,17 +58,23 @@
     display: flex;
     align-items: center;
     border: solid var(--color-two) 1px;
+    transition: 0.3s ease-in-out;
     border-radius: 5px;
 }
 
 .formMortagageInput input{
     width: 100%;
+    color: black;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
 }
 
 .formMortagageInput span{
-    padding: 0.8rem;
+    padding: 1rem;
     background-color: var(--color-three);
     font-weight: bold;
+    transition: 0.3s ease-in-out;
     color: var(--color-two);
 }
 
@@ -78,16 +85,20 @@
 }
 
 .formContentCalculator input:focus{
-    outline: 2px solid var(--color-five);
+    outline: none;
 }
 
-.formContentCalculator input:focus ~ span{
+.formMortagageInput:has(.inputCalculator:focus) span{
     background-color: var(--color-five);
-} 
-
-.formContentCalculator input:focus-within span{
-    background-color: var(--color-five);
+    color: var(--color-four);
+    transition: 0.2s ease-in-out;
 }
+
+.formMortagageInput:has(.inputCalculator:focus) {
+    border: 1px solid var(--color-five);
+    transition: 0.2s ease-in-out;
+}
+
 
 #formMortgageAmount span{
    border-radius: 5px 0 0 5px;
