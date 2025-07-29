@@ -18,7 +18,7 @@
 
     <header class="headerCalculator">
       <h1>Mortgage Calculator</h1>
-      <a>Clear All</a>
+      <a id="clearAll">Clear All</a>
     </header>
 
     <form action="" class="formContentCalculator">
@@ -27,6 +27,7 @@
         <span>£</span>
         <input type="number" id="MortgageInput" class="inputCalculator">
       </div>
+      <p class="errorText">This field is required</p>
 
       <div class="formContentDisplay">
         <div class="formContentLabels">
@@ -35,6 +36,7 @@
             <input type="text" id="MortgageTermInput" class="inputCalculator">
             <span>years</span>
           </div>
+          <p class="errorText">This field is required</p>
         </div>
       
         <div class="formContentLabels">
@@ -43,6 +45,7 @@
             <input type="text" id="InterestInput" class="inputCalculator">
             <span>%</span>
           </div>
+          <p class="errorText">This field is required</p>
         </div>
 
       </div>      
@@ -60,6 +63,7 @@
           <p>Interest Only</p>
         </label> 
       </article>
+      <p class="errorText">This field is required</p>
 
       <button class="btnCalculate">
         <img src="assets/images/icon-calculator.svg" alt="" class="btnImage"> 
@@ -69,22 +73,6 @@
   </section>
 
   <!-- Empty results start -->
-
-  <footer class="footerCalculatorDisplay">
-    <img src="assets/images/illustration-empty.svg" alt="">
-
-    <div class="footerCalculatorText">
-      <h2>Results shown here</h2>
-      <p>Complete the form and click “calculate repayments” to see what 
-      your monthly repayments would be.
-      </p>
-    </div>
-    </div>
-  </footer>
-
-  <!-- Empty results end -->
-
-  <!-- Completed results start -->
 
   <footer class="footerCalculatorDisplayNone">
     
@@ -98,14 +86,28 @@
     <div class="CalculatorPrincipalMoney">
       <div class="CalculatorPrincipalRepayments">
         <p>Your monthly repayments</p>
-        <span class="MoneyLibra">£</span>
+        <span id="MoneyLibra">£</span>
       </div>
 
       <div class="CalculatorPrincipalRepayTotal">
         <p>Total you'll repay over the term</p>
-        <span class="MoneyLibraTotal">£</span>
+        <span id="MoneyLibraTotal">£</span>
       </div>
   </footer>
+
+  <footer class="footerCalculatorDisplay">
+    <img src="assets/images/illustration-empty.svg" alt="">
+    <div class="footerCalculatorText">
+      <h2>Results shown here</h2>
+      <p>Complete the form and click “calculate repayments” to see what your monthly repayments would be.
+      </p>
+    </div>
+  </footer>
+  <!-- Empty results end -->
+
+  <!-- Completed results start -->
+
+  <script src="assets/sistema.js"></script>
   
   <!-- <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
