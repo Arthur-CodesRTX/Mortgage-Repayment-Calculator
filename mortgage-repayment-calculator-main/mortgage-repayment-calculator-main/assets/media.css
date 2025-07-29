@@ -41,7 +41,7 @@
 }
 
 /* Lado direito */
-.footerCalculatorDisplay {
+.footerCalculatorDisplay{
   flex: 1;
   background-color: #0a2c3d;
   color: #fff;
@@ -53,6 +53,44 @@
   align-items: center;
   text-align: center;
   margin: 0;
+}
+
+.footerCalculatorDisplayNone{
+  flex: 1;
+  border-radius: 0 1rem 1rem 5rem;
+  width: 100%;
+  background-color: var(--color-four);
+  width: 100%;
+  color: white;
+  display: none;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: center;
+  padding: 2rem ;
+  gap: 1rem;
+}
+
+.CalculatorPrincipalText p{
+  color: var(--color-six);
+  font-size: 1rem;
+  text-align:start;
+  letter-spacing: 0.5px;
+  font-weight: 300;
+}
+
+.CalculatorPrincipalMoney{
+  flex: 1;
+  margin-bottom: 5rem;
+  padding: 2rem;
+}
+
+.CalculatorPrincipalRepayTotal{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  border-top: 0.1px solid var(--color-two);
+  padding: 2rem 0;
 }
 
 .btnCalculate{
