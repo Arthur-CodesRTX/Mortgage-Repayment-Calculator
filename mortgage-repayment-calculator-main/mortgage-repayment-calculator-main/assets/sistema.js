@@ -2,7 +2,7 @@ let inputCalculator = document.querySelectorAll(".inputCalculator")
 // console.log(inputCalculator)
 let errorText = document.querySelectorAll(".errorText")
 // console.log(errorText)
-let checkBtn = document.querySelectorAll(".checkBtn")
+let checkBtn = document.querySelectorAll(".checkInput")
 // console.log(checkBtn)
 let btnCalculate = document.querySelector(".btnCalculate")
 // console.log(btnCalculate)
@@ -17,8 +17,30 @@ let moneyRepay = document.querySelector("#MoneyLibra")
 let moneyTotal = document.querySelector("#moneyLibraTotal")
 // console.log(moneyTotal)
 
+btnCalculate.addEventListener("click", CalculateRepayments)
+clearAll.addEventListener("click", clearInputs)
 
+function CalculateRepayments(){
+    event.preventDefault();
+    inputCalculator.forEach( input =>{
+        
+        // input.value
+        footerResults.style.display = "none"
+        footerCalculated.style.display = "flex"
 
+    })
+
+}
+
+function clearInputs(){
+    inputCalculator.forEach(input => {
+        input.value = "";  
+    });
+
+    checkBtn.forEach(check => {
+        check.checked = false
+    })
+}
 
 // 1. PEGAR OS DADOS DOS INPUTS E CALCULAR, QUANDO CALCULADO TRANFERIR PARA A PROXIMA PÁGINA.
 // 2. CASO, DE ALGUM ERRO MOSTRAR ABAIXO DO INPUT E CALCELAR O ENVIO.
