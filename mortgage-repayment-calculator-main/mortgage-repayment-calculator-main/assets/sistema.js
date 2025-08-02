@@ -1,34 +1,89 @@
-let inputCalculator = document.querySelectorAll(".inputCalculator")
+const inputCalculator = document.querySelectorAll(".inputCalculator")
 // console.log(inputCalculator)
-let errorText = document.querySelectorAll(".errorText")
+const errorText = document.querySelectorAll(".errorText")
 // console.log(errorText)
-let checkBtn = document.querySelectorAll(".checkInput")
+const checkBtn = document.querySelectorAll(".checkInput")
 // console.log(checkBtn)
-let btnCalculate = document.querySelector(".btnCalculate")
+const btnCalculate = document.querySelector(".btnCalculate")
 // console.log(btnCalculate)
-let footerCalculated = document.querySelector(".footerCalculatorDisplayNone")
+const footerCalculated = document.querySelector(".footerCalculatorDisplayNone")
 // console.log(footerCalculated)
-let footerResults = document.querySelector(".footerCalculatorDisplay")
+const footerResults = document.querySelector(".footerCalculatorDisplay")
 // console.log(footerResults)
-let clearAll = document.querySelector("#clearAll")
+const clearAll = document.querySelector("#clearAll")
 // console.log(clearAll)
-let moneyRepay = document.querySelector("#MoneyLibra")
+const moneyRepay = document.querySelector("#moneyLibra")
 // console.log(moneyRepay)
-let moneyTotal = document.querySelector("#moneyLibraTotal")
+const moneyTotal = document.querySelector("#moneyLibraTotal")
 // console.log(moneyTotal)
 
 btnCalculate.addEventListener("click", CalculateRepayments)
 clearAll.addEventListener("click", clearInputs)
 
-function CalculateRepayments(){
+function CalculateRepayments(parcelaTotal, parcelas, juros){
     event.preventDefault();
-    inputCalculator.forEach( input =>{
-        
-        // input.value
-        footerResults.style.display = "none"
-        footerCalculated.style.display = "flex"
-
+    
+    inputCalculator.forEach(input => {
+    if(input.id === "MortgageInput") parcelaTotal = input.value;
+    if(input.id === "MortgageTermInput") parcelas = input.value;
+    if(input.id === "InterestInput") juros = input.value;
     })
+
+    const n = parcelas * 12
+    const t = juros / 100
+    const r = t / 12;
+    let liberado = null;
+
+    for(let i = 0; i <= inputCalculator.length; i++){
+        for(let j = 0; j <= checkBtn; j++){
+        if(inputCalculator[i].value !== "" && checkBtn[j].checked){
+             liberado = true  
+        } else{
+            liberado = false
+        }
+        }
+       
+    } 
+
+    if(liberado === true){
+        checkBtn.forEach(chkBtn => {
+        
+            if(chkBtn.checked && chkBtn.id === "checkBox01"){
+                pagamentoMensal = parcelaTotal * (r * Math.pow(1 + r,n)) / (Math.pow(1 + r,n) - 1);
+
+                pagamentoTotal = parcelaTotal * (t * Math.pow(1 + t,n)) / (Math.pow(1 + t,n) - 1);
+
+                pagamentoTotal = pagamentoTotal.toFixed(2)
+                pagamentoMensal = pagamentoMensal.toFixed(2)
+            
+            } else if(chkBtn.checked && chkBtn.id === "checkBox02"){
+                pagamentoMensal = parcelaTotal * r
+                pagamentoTotal = parcelaTotal * t
+
+            }
+
+            moneyRepay.textContent += pagamentoMensal;
+            moneyTotal.textContent += pagamentoTotal;
+            footerResults.style.display = "none";
+            footerCalculated.style.display = "flex";
+        })
+    } else{
+        errorText.forEach( err => {
+            err.style.display = "flex"
+        })
+    }
+
+       
+
+
+
+        
+        
+
+
+
+
+        
 
 }
 
