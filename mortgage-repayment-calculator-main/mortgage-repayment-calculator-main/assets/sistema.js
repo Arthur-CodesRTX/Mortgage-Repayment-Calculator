@@ -16,9 +16,14 @@ const moneyRepay = document.querySelector("#moneyLibra")
 // console.log(moneyRepay)
 const moneyTotal = document.querySelector("#moneyLibraTotal")
 // console.log(moneyTotal)
+const spanColor = document.querySelectorAll(".formMortagageInput span")
+// console.log(spanColor)
+const inputsBorder = document.querySelectorAll(".formMortagageInput")
+// console.log(inputsBorder)
 
 btnCalculate.addEventListener("click", CalculateRepayments)
 clearAll.addEventListener("click", clearInputs)
+inputCalculator.forEach(ipt => ipt.addEventListener("input", detectLetter));
 
 function CalculateRepayments(parcelaTotal, parcelas, juros){
     event.preventDefault();
@@ -34,9 +39,10 @@ function CalculateRepayments(parcelaTotal, parcelas, juros){
     const r = t / 12;
     let liberado = null;
 
-    for(let i = 0; i <= inputCalculator.length; i++){
-        for(let j = 0; j <= checkBtn; j++){
-        if(inputCalculator[i].value !== "" && checkBtn[j].checked){
+    for(let i = 0; i < inputCalculator.length; i++){
+        for(let j = 0; j < checkBtn.length; j++){
+        if(inputCalculator[i].value !== ""){
+            // && checkBtn[j].checked
              liberado = true  
         } else{
             liberado = false
@@ -45,46 +51,64 @@ function CalculateRepayments(parcelaTotal, parcelas, juros){
        
     } 
 
-    if(liberado === true){
-        checkBtn.forEach(chkBtn => {
-        
-            if(chkBtn.checked && chkBtn.id === "checkBox01"){
-                pagamentoMensal = parcelaTotal * (r * Math.pow(1 + r,n)) / (Math.pow(1 + r,n) - 1);
+    if (liberado) {
+    let pagamentoMensal = null;
+    let pagamentoTotal = null;
 
-                pagamentoTotal = parcelaTotal * (t * Math.pow(1 + t,n)) / (Math.pow(1 + t,n) - 1);
+    checkBtn.forEach(chkBtn => {
+        if (chkBtn.checked && chkBtn.id === "checkBox01") {
+            pagamentoMensal = parcelaTotal * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+            pagamentoTotal = parcelaTotal * (t * Math.pow(1 + t, n)) / (Math.pow(1 + t, n) - 1);
 
-                pagamentoTotal = pagamentoTotal.toFixed(2)
-                pagamentoMensal = pagamentoMensal.toFixed(2)
-            
-            } else if(chkBtn.checked && chkBtn.id === "checkBox02"){
-                pagamentoMensal = parcelaTotal * r
-                pagamentoTotal = parcelaTotal * t
+        } else if (chkBtn.checked && chkBtn.id === "checkBox02") {
+            pagamentoMensal = parcelaTotal * r;
+            pagamentoTotal = parcelaTotal * t;
+        }
+    });
 
-            }
+    if (pagamentoMensal !== null && pagamentoTotal !== null) {
+        pagamentoMensal = pagamentoMensal.toFixed(2);
+        pagamentoTotal = pagamentoTotal.toFixed(2);
 
-            moneyRepay.textContent += pagamentoMensal;
-            moneyTotal.textContent += pagamentoTotal;
-            footerResults.style.display = "none";
-            footerCalculated.style.display = "flex";
-        })
-    } else{
-        errorText.forEach( err => {
-            err.style.display = "flex"
-        })
+        moneyRepay.textContent += pagamentoMensal;
+        moneyTotal.textContent += pagamentoTotal;
+
+        footerResults.style.display = "none";
+        footerCalculated.style.display = "flex";
+    } else {
+        errorCalculator()
     }
 
-       
+} else {
+   errorCalculator()
+}
 
+function errorCalculator(){
+    errorText.forEach(err => {
+        err.style.display = "flex";
+    });
+    spanColor.forEach(spn =>{
+        spn.style.backgroundColor = "var(--color-seven)";
+        spn.style.color = "white";
+    })
+    inputsBorder.forEach( ipt =>{
+        ipt.style.border = "1px solid var(--color-seven)"
+    })
+}
 
-
-        
-        
-
-
-
-
-        
-
+function detectLetter(e){
+   errorText.forEach(err => {
+        err.style.display = "none";
+    });
+    spanColor.forEach(spn =>{
+        spn.style.backgroundColor = "var(--color-three)";
+        spn.style.color = "var(--color-two)";
+    })
+    inputsBorder.forEach( ipt =>{
+        ipt.style.border = "1px solid var(--color-one)"
+    })
+}      
+    
 }
 
 function clearInputs(){
@@ -97,8 +121,4 @@ function clearInputs(){
     })
 }
 
-// 1. PEGAR OS DADOS DOS INPUTS E CALCULAR, QUANDO CALCULADO TRANFERIR PARA A PROXIMA PÁGINA.
-// 2. CASO, DE ALGUM ERRO MOSTRAR ABAIXO DO INPUT E CALCELAR O ENVIO.
-// 3 . VERIFICAR O MORTGAGE TYPE, QUE PELO MENOS UM DELES TEM QUE ESTAR ATIVADO, E NUNCA OS DOIS PODEM ESTAR ATIVADOS JUNTOS, SE NÃO MOSTRAR ERROR.
-// 4. SE A PESSOA COMEÇAR A ESCREVER RETIRAR O ERROR.
-// 5. CASO A PESSOA QUEIRA APAGAR TODO O CONTEÚDO DOS INPUTS, USAR O CLEAR ALL.
+// 1. Arrumar o vermelho da digitação
