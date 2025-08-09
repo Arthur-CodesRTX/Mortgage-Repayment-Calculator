@@ -7,6 +7,7 @@
     --color-four:hsl(202, 55%, 16%);
     --color-five:hsl(61, 70%, 52%);
     --color-six:hsl(203, 41%, 72%);
+    --color-seven:hsl(4, 69%, 50%);
 }
 
 * {
@@ -59,7 +60,7 @@
     align-items: center;
     border: solid var(--color-two) 1px;
     transition: 0.3s ease-in-out;
-    border-radius: 5px;
+    border-radius: 7px;
 }
 
 .formMortagageInput input{
