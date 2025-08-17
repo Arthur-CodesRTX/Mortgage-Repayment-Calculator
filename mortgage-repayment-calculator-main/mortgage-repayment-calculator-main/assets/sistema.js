@@ -24,6 +24,7 @@ const inputsBorder = document.querySelectorAll(".formMortagageInput")
 btnCalculate.addEventListener("click", CalculateRepayments)
 clearAll.addEventListener("click", clearInputs)
 inputCalculator.forEach(ipt => ipt.addEventListener("input", detectLetter));
+checkBtn.forEach(chkBtn => chkBtn.addEventListener("click", checkButtonError))
 
 function CalculateRepayments(parcelaTotal, parcelas, juros){
     event.preventDefault();
@@ -42,7 +43,6 @@ function CalculateRepayments(parcelaTotal, parcelas, juros){
     for(let i = 0; i < inputCalculator.length; i++){
         for(let j = 0; j < checkBtn.length; j++){
         if(inputCalculator[i].value !== ""){
-            // && checkBtn[j].checked
              liberado = true  
         } else{
             liberado = false
@@ -70,11 +70,12 @@ function CalculateRepayments(parcelaTotal, parcelas, juros){
         pagamentoMensal = pagamentoMensal.toFixed(2);
         pagamentoTotal = pagamentoTotal.toFixed(2);
 
-        moneyRepay.textContent += pagamentoMensal;
-        moneyTotal.textContent += pagamentoTotal;
+        moneyRepay.textContent = `£${pagamentoMensal}`;
+        moneyTotal.textContent = `£${pagamentoTotal}`;
 
         footerResults.style.display = "none";
         footerCalculated.style.display = "flex";
+
     } else {
         errorCalculator()
     }
@@ -85,7 +86,7 @@ function CalculateRepayments(parcelaTotal, parcelas, juros){
 
 function errorCalculator(){
     errorText.forEach(err => {
-        err.style.display = "flex";
+        err.classList.add("active")
     });
     spanColor.forEach(spn =>{
         spn.style.backgroundColor = "var(--color-seven)";
@@ -96,19 +97,6 @@ function errorCalculator(){
     })
 }
 
-function detectLetter(e){
-   errorText.forEach(err => {
-        err.style.display = "none";
-    });
-    spanColor.forEach(spn =>{
-        spn.style.backgroundColor = "var(--color-three)";
-        spn.style.color = "var(--color-two)";
-    })
-    inputsBorder.forEach( ipt =>{
-        ipt.style.border = "1px solid var(--color-one)"
-    })
-}      
-    
 }
 
 function clearInputs(){
@@ -121,4 +109,37 @@ function clearInputs(){
     })
 }
 
-// 1. Arrumar o vermelho da digitação
+function detectLetter(){
+   
+    switch(true){
+
+        case this.id === "MortgageInput":
+            errorText[0].classList.remove("active")
+            spanColor[0].style.backgroundColor = "";
+            spanColor[0].style.color = "";
+            inputsBorder[0].style.border = ""
+            break;
+
+        case this.id === "MortgageTermInput":
+            errorText[1].classList.remove("active")
+            spanColor[1].style.backgroundColor = "";
+            spanColor[1].style.color = "";
+            inputsBorder[1].style.border = ""
+            break; 
+
+        case this.id === "InterestInput":
+            errorText[2].classList.remove("active")
+            spanColor[2].style.backgroundColor = "";
+            spanColor[2].style.color = "";
+            inputsBorder[2].style.border = ""
+            break; 
+
+    } 
+
+}      
+
+function checkButtonError(){
+    
+    errorText[3].classList.remove("active")
+
+}
