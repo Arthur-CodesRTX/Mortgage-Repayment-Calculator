@@ -1,69 +1,86 @@
+/* ------------------------------
+   Importação de fontes
+------------------------------ */
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
-:root{
-    --color-one:hsl(200, 26%, 54%);
-    --color-two:hsl(200, 24%, 40%);
-    --color-three:hsl(202, 86%, 94%);
-    --color-four:hsl(202, 55%, 16%);
-    --color-five:hsl(61, 70%, 52%);
-    --color-six:hsl(203, 41%, 72%);
-    --color-seven:hsl(4, 69%, 50%);
+/* ------------------------------
+   Variáveis (cores principais)
+------------------------------ */
+:root {
+    --color-one:   hsl(200, 26%, 54%);
+    --color-two:   hsl(200, 24%, 40%);
+    --color-three: hsl(202, 86%, 94%);
+    --color-four:  hsl(202, 55%, 16%);
+    --color-five:  hsl(61, 70%, 52%);
+    --color-six:   hsl(203, 41%, 72%);
+    --color-seven: hsl(4, 69%, 50%);
 }
 
+/* ------------------------------
+   Reset básico
+------------------------------ */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.bodyBackground{
+.bodyBackground {
     font-family: "Plus Jakarta Sans", "Arial";
     background-color: hsl(207, 40%, 90%);
 }
 
-.headerCalculator{
+/* ------------------------------
+   Cabeçalho da calculadora
+------------------------------ */
+.headerCalculator {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 }
 
-.headerCalculator h1{
+.headerCalculator h1 {
     font-size: 1.8rem;
 }
 
-.headerCalculator a{
+.headerCalculator a {
     color: var(--color-one);
     font-size: 1rem;  
-    border-bottom:1px solid var(--color-one);
-    width:fit-content;
+    border-bottom: 1px solid var(--color-one);
+    width: fit-content;
     font-weight: 500;
     cursor: pointer;
 }
 
-.formCalculator{
+/* ------------------------------
+   Formulário principal
+------------------------------ */
+.formCalculator {
     padding: 1.5rem;
     background-color: white;
 }
 
-.formContentCalculator{
+.formContentCalculator {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: start;
     width: 100%;
-    
 }
 
-.formMortagageInput{
+/* ------------------------------
+   Inputs principais
+------------------------------ */
+.formMortagageInput {
     width: 100%;
     display: flex;
     align-items: center;
-    border: solid var(--color-two) 1px;
-    transition: 0.3s ease-in-out;
+    border: 1px solid var(--color-two);
     border-radius: 7px;
+    transition: 0.3s ease-in-out;
 }
 
-.formMortagageInput input{
+.formMortagageInput input {
     width: 100%;
     color: black;
     font-weight: 600;
@@ -71,26 +88,28 @@
     letter-spacing: 0.5px;
 }
 
-.formMortagageInput span{
+.formMortagageInput span {
     padding: 1rem;
     background-color: var(--color-three);
     font-weight: bold;
-    transition: 0.3s ease-in-out;
     color: var(--color-two);
+    transition: 0.3s ease-in-out;
 }
 
-.formContentCalculator input{
+/* inputs genéricos */
+.formContentCalculator input {
     padding: 1rem;
     border-radius: 5px;
     border: none;
 }
 
-.formContentCalculator input:focus{
+.formContentCalculator input:focus {
     border-radius: 5px;
     outline: none;
 }
 
-.formMortagageInput:has(.inputCalculator:focus) span{
+/* Efeito no span quando input em foco */
+.formMortagageInput:has(.inputCalculator:focus) span {
     background-color: var(--color-five);
     color: var(--color-four);
     border-radius: 5px;
@@ -102,49 +121,51 @@
     transition: 0.2s ease-in-out;
 }
 
-
-#formMortgageAmount span{
+/* Borda arredondada específica por input */
+#formMortgageAmount span {
    border-radius: 5px 0 0 5px;
 }
 
-#formMortgageTerm span, #formMortgageRate span{
+#formMortgageTerm span, 
+#formMortgageRate span {
     border-radius: 0 5px 5px 0;
 }
 
-.formContentCalculator label{
-    margin:1rem 0 0.8rem 0;
+/* Labels */
+.formContentCalculator label {
+    margin: 1rem 0 0.8rem 0;
     font-size: 1rem;
     font-weight: 600;
     color: var(--color-two);
 }
 
-.formContentDisplay{
+/* ------------------------------
+   Seção de escolha (checkbox/radio)
+------------------------------ */
+.formContentDisplay {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-.formContentDisplay .formContentLabels{
+.formContentDisplay .formContentLabels {
     display: flex;
     flex-direction: column;
 }
 
-.formContentDisplay .formContentLabels label{
+.formContentDisplay .formContentLabels label {
     width: fit-content;
 }
 
-.formCheckboxContainer{
+.formCheckboxContainer {
     width: 100%;
-}
-
-.formCheckboxContainer{
     display: flex;
     flex-direction: column;
     gap: 1rem;
     align-items: center;
 }
 
-.checkContainer{
+.checkContainer {
     width: 100%;
     display: flex;
     align-items: center;
@@ -153,27 +174,29 @@
     border-radius: 5px;
     justify-content: left;
     padding: 0.8rem;
-    cursor:pointer;
+    cursor: pointer;
     transition: 0.2s ease-in-out;
 }
 
-#checkContainer01, #checkContainer02{
+#checkContainer01, 
+#checkContainer02 {
     margin: 0;
 }
 
-.checkContainer p{
+.checkContainer p {
     font-size: 1.2rem;
     font-weight: 700;
     color: var(--color-four);
 }
 
-.checkContainer:has(input[type="radio"]:checked){
+/* estilo quando radio selecionado */
+.checkContainer:has(input[type="radio"]:checked) {
     border: 1px solid var(--color-five);
-    background-color: rgb(215, 218, 47,0.1);
+    background-color: rgb(215, 218, 47, 0.1);
     transition: 0.2s ease-in-out;
 }
 
-.checkBtn{
+.checkBtn {
     font-size: 1rem;
     font-weight: 600;
     color: var(--color-two);
@@ -184,22 +207,26 @@
     transition: 0.2s ease-in-out;
 }
 
-.checkContainer input:checked ~ .checkBtn{
+/* bolinha selecionada */
+.checkContainer input:checked ~ .checkBtn {
     border: none;
     outline-offset: 2px;
     outline: 2px solid var(--color-five);
     background-color: var(--color-five);
     width: 0.7rem;
     margin-left: 0.3rem;
-    aspect-ratio: 1;
     margin-right: 0.2rem;
+    aspect-ratio: 1;
     transition: 0.2s ease-in-out;
 }
 
-.btnCalculate{
+/* ------------------------------
+   Botão principal
+------------------------------ */
+.btnCalculate {
     background-color: var(--color-five);
     border: none;
-    width: 100%;;
+    width: 100%;
     border-radius: 30px;
     margin-top: 1.5rem;
     font-size: 1.2rem;
@@ -213,11 +240,13 @@
     cursor: pointer;
 }
 
-.footerCalculatorDisplay{
+/* ------------------------------
+   Footer da calculadora
+------------------------------ */
+.footerCalculatorDisplay {
     margin-top: 1rem;
     background-color: var(--color-four);
     width: 100%;
-    display: flex;
     display: none;
     flex-direction: column;
     justify-content: center;
@@ -226,7 +255,7 @@
     padding: 2rem;
 }
 
-.footerCalculatorDisplayNone{
+.footerCalculatorDisplayNone {
     display: none;
     background-color: var(--color-four);
     width: 100%;
@@ -235,11 +264,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 2rem ;
+    padding: 2rem;
     gap: 1rem;
 }
 
-.footerCalculatorText{
+.footerCalculatorText {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -248,20 +277,22 @@
     gap: 1rem;
 }
 
-.footerCalculatorDisplay h2{
+.footerCalculatorDisplay h2 {
     font-size: 1.5rem;
     font-weight: 600;
-    
 }
 
-.footerCalculatorDisplay p{
+.footerCalculatorDisplay p {
     color: var(--color-six);
     font-size: 1rem;
     letter-spacing: 0.5px;
     font-weight: 300;
 }
 
-.CalculatorPrincipalText{
+/* ------------------------------
+   Área de resultados principais
+------------------------------ */
+.CalculatorPrincipalText {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -269,20 +300,20 @@
     gap: 1.2rem;
 }
 
-.CalculatorPrincipalText h2{
+.CalculatorPrincipalText h2 {
     font-size: 1.5rem;
     font-weight: 600;
 }
 
-.CalculatorPrincipalText p{
+.CalculatorPrincipalText p {
     color: var(--color-six);
     font-size: 1rem;
-    text-align:start;
+    text-align: start;
     letter-spacing: 0.5px;
     font-weight: 300;
 }
 
-.CalculatorPrincipalMoney{
+.CalculatorPrincipalMoney {
     width: 100%;
     background-color: hsl(201, 55%, 12%);
     padding: 1.5rem 1rem 0 1rem;
@@ -295,7 +326,7 @@
     margin-top: 1.5rem;
 }
 
-.CalculatorPrincipalRepayTotal{
+.CalculatorPrincipalRepayTotal {
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -304,26 +335,34 @@
     padding: 1rem 0;
 }
 
-.CalculatorPrincipalRepayTotal #moneyLibraTotal{
+.CalculatorPrincipalRepayTotal #moneyLibraTotal {
     font-size: 1.5rem;
     font-weight: 600;
 }
 
-
-.CalculatorPrincipalMoney p{
+.CalculatorPrincipalMoney p {
     color: var(--color-six);
     font-size: 1rem;
 }
 
-.CalculatorPrincipalMoney #moneyLibra{
+.CalculatorPrincipalMoney #moneyLibra {
     color: var(--color-five);
     font-size: 2.8rem;
     font-weight: 600;
 }
 
-.errorText{
-    display: none;
+/* ------------------------------
+   Mensagens de erro
+------------------------------ */
+.errorText {
     color: hsl(4, 69%, 50%);
     font-weight: 600;
     padding: 0.5rem 0;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.active {
+   opacity: 1;
+   transition: opacity 0.2s ease-in-out;
 }
